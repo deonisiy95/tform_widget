@@ -23,9 +23,9 @@
       config = loadConfig;
 
       if (['complete', 'interactive'].includes(document.readyState)) {
-        initWidget();
+        initWidget(widgetId);
       } else {
-        addListener(window, 'load', initWidget);
+        addListener(window, 'load', () => initWidget(widgetId));
       }
     });
 
@@ -57,7 +57,7 @@
       xhr.send(null);
     }
 
-    function initWidget() {
+    function initWidget(widgetId) {
       const where = document.body.lastChild;
 
       if (container.style) {
@@ -84,6 +84,8 @@
         iframe.src = `javascript:var d=document.open();d.domain='${document.domain}';void(0);`;
         doc = iframe.contentWindow.document;
       }
+
+      iframe.contentWindow.widgetId = widgetId;
 
       const bundleSrc = getBundleSrc();
       const DOCTYPE = '<!doctype HTML>';

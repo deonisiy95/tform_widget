@@ -8,7 +8,10 @@ module.exports = {
   entry: ['./src/index.tsx'],
   output: {path: path.join(__dirname, 'dist'), filename: 'bundle.js'},
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js']
+    extensions: ['', '.ts', '.tsx', '.js'],
+    alias: {
+      src: path.resolve(__dirname, 'src')
+    }
   },
   plugins: [new MiniCssExtractPlugin({
     filename: "widget.css",

@@ -1,5 +1,5 @@
 import {h, render} from 'preact';
-import App from './app/components/Hello';
+import App from './app/controllers/App';
 
 const getPageWindow = () => {
   return window.parent || window;
@@ -18,4 +18,4 @@ _head.appendChild(link);
 
 _body.appendChild(rootContainer);
 
-render(<App />, rootContainer);
+render(<App widgetId={window.widgetId} />, rootContainer);
