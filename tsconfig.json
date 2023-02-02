@@ -2,19 +2,29 @@
   "compilerOptions": {
     "baseUrl": "./",
     "sourceMap": true,
-    "module": "commonjs",
+    "preserveConstEnums": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "allowJs": true,
+    "target": "es5",
     "jsx": "react",
-    "jsxFactory": "h",
-    "target": "es5"
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noImplicitAny": false,
+    "jsxFactory": "h"
   },
   "paths": {
-    "src/*": [
-      "src/*"
-    ]
+    "src/*": ["src/*"],
+    "styles/*": ["src/styles/*"],
+    "UI/*": ["src/core/components/*"]
   },
   "include": [
     "src/*.ts",
     "src/*.tsx",
-    "src/@types/global.d.ts"
+    "src/@types/global.d.ts",
+    "src/core/components/*"
   ]
 }
