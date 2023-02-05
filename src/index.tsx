@@ -1,5 +1,6 @@
 import {h, render} from 'preact';
-import App from './app/controllers/App';
+import App from 'src/app/controllers/App';
+import 'src/styles/global.less';
 
 const getPageWindow = () => {
   return window.parent || window;

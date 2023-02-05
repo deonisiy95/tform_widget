@@ -14,7 +14,7 @@ const CheckboxComponent = (props: IProps, ref) => {
   const uuid = generateId();
 
   return (
-    <div className={cn(style.root, className, {[style.inactive]: inactive})}>
+    <tdiv className={cn(style.root, className, {[style.inactive]: inactive})}>
       <input
         id={uuid}
         ref={ref}
@@ -24,13 +24,13 @@ const CheckboxComponent = (props: IProps, ref) => {
         disabled={inactive || checkBoxProps.disabled}
       />
       <label htmlFor={uuid}>
-        <div className={style.marker} />
+        <tdiv className={style.marker} />
       </label>
 
       <label className={style.label} htmlFor={uuid}>
         {children}
       </label>
-    </div>
+    </tdiv>
   );
 };
 

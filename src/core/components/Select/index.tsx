@@ -1,6 +1,7 @@
 import {h, FunctionalComponent} from 'preact';
-import {useMemo, useState} from 'preact/compat';
+import {useMemo, useState, useCallback, useEffect} from 'preact/compat';
 import style from './style.less';
+import cn from 'classnames';
 
 interface IProps {
   value: string;
@@ -10,6 +11,19 @@ interface IProps {
 
 export const Select: FunctionalComponent<IProps> = ({value, options, onChange}) => {
   const [isActive, setIsActive] = useState(false);
+  const onOutClick = useCallback(() => {
+    setIsActive(false);
+  }, []);
+
+  useEffect(() => {
+    return () => document.removeEventListener('click', onOutClick);
+  }, []);
+
+  useEffect(() => {
+    isActive
+      ? document.addEventListener('click', onOutClick)
+      : document.removeEventListener('click', onOutClick);
+  }, [isActive]);
 
   const selectedItem = useMemo(() => {
     return options.find(item => item.key === value)?.value ?? 'Not selected';
@@ -17,19 +31,19 @@ export const Select: FunctionalComponent<IProps> = ({value, options, onChange}) 
 
   return (
     <tdiv className={style.control}>
-      <div className={style.button} onClick={() => setIsActive(!isActive)}>
+      <tdiv className={style.button} onClick={() => setIsActive(!isActive)}>
         {selectedItem}
-      </div>
+      </tdiv>
       {isActive ? (
-        <div className={style.options}>
-          <div className={style.list}>
+        <tdiv className={style.options}>
+          <tdiv className={cn(style.list, 'scroll')}>
             {options?.map(item => (
-              <div key={item.key} onClick={() => onChange(item.key)}>
+              <tdiv key={item.key} onClick={() => onChange(item.key)}>
                 {item.value}
-              </div>
+              </tdiv>
             ))}
-          </div>
-        </div>
+          </tdiv>
+        </tdiv>
       ) : null}
     </tdiv>
   );

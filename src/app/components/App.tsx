@@ -11,7 +11,7 @@ interface IProps {
 
 export function AppComponent({form}: IProps) {
   return (
-    <div className={style.container}>
+    <tdiv className={style.container}>
       {form[0].value}
       <Input value={'asd'} />
       <CheckBox checked={true} />
@@ -24,6 +24,6 @@ export function AppComponent({form}: IProps) {
         ]}
         onChange={key => console.log(key)}
       />
-    </div>
+    </tdiv>
   );
 }
