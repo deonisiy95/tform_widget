@@ -4,7 +4,7 @@ import style from './style.less';
 import cn from 'classnames';
 
 interface IProps {
-  value: string;
+  value?: string;
   options: Array<{key: string; value: string}>;
   onChange: (key: string) => void;
 }

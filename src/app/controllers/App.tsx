@@ -2,8 +2,7 @@ import {h} from 'preact';
 import {useEffect, useState} from 'preact/compat';
 import Api from 'src/core/utils/api';
 import {AppComponent} from 'src/app/components/App';
-import {IFormData} from 'src/@types/app';
-import asyncJSON from '../../core/utils/asyncJSON';
+import asyncJSON from 'src/core/utils/asyncJSON';
 
 interface IProps {
   widgetId: string;

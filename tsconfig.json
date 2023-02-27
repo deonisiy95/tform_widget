@@ -14,18 +14,20 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "noImplicitAny": false,
-    "jsxFactory": "h"
+    "jsxFactory": "h",
   },
   "paths": {
     "src/*": ["src/*"],
     "styles/*": ["src/styles/*"],
     "UI/*": ["src/core/components/*"]
   },
+  "typeRoots": ["node_modules/@types", "./**/@types"],
   "include": [
     "src/*.ts",
     "src/*.tsx",
     "src/@types/global.d.ts",
     "src/@types/index.d.ts",
+    "src/@types/app.d.ts",
     "src/core/components/*"
   ]
 }
