@@ -1,6 +1,7 @@
 import {h, render} from 'preact';
 import App from 'src/app/controllers/App';
 import 'src/styles/global.less';
+import style from 'src/styles/index.less';
 
 const getPageWindow = () => {
   return window.parent || window;
@@ -14,6 +15,8 @@ const link = _window.document.createElement('link');
 
 link.rel = 'stylesheet';
 link.href = 'http://127.0.0.1:3000/widget.css';
+
+rootContainer.classList.add(style.mainContainer);
 
 _head.appendChild(link);
 

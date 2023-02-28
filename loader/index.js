@@ -86,6 +86,7 @@
       }
 
       iframe.contentWindow.widgetId = widgetId;
+      iframe.contentWindow.config = config;
 
       const bundleSrc = getBundleSrc();
       const DOCTYPE = '<!doctype HTML>';

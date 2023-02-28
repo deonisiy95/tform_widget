@@ -25,6 +25,10 @@ module.exports = {
         use: ['ts-loader']
       },
       {
+        test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
+        type: 'asset'
+      },
+      {
         test: /\.less$/,
         use: [
           MiniCssExtractPlugin.loader,

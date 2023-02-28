@@ -13,7 +13,11 @@ export function AppComponent({form}: IProps) {
 
   return (
     <tdiv className={style.container}>
-      {isOpen ? <Form data={form} /> : <MainButton onClick={() => setOpen(true)} />}
+      {isOpen ? (
+        <Form data={form} onClose={() => setOpen(false)} />
+      ) : (
+        <MainButton onClick={() => setOpen(true)} />
+      )}
     </tdiv>
   );
 }

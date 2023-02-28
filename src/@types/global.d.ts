@@ -1,5 +1,9 @@
 declare interface Window {
   widgetId: string;
+  config: {
+    [key: string]: any;
+    build_number: number;
+  }
 }
 
 declare module '*.less' {

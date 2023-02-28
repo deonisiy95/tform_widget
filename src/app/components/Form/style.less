@@ -1,0 +1,28 @@
+@import '~styles/colors';
+
+:local {
+  .formWrapper {
+    position: relative;
+  }
+
+  .form {
+    padding: 16px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px 2px rgb(0 0 0 / 14%);
+  }
+
+  .close {
+    width: 24px;
+    height: 24px;
+    top: 12px;
+    left: -34px;
+    position: absolute;
+    background: @grayscale-40;
+    -webkit-mask-size: contain;
+    cursor: pointer;
+
+    &:hover {
+      background: darken(@grayscale-40, 10%);
+    }
+  }
+}
