@@ -1,0 +1,2 @@
+export const TRANSITIONAL_DURATION_FORM = 150;
+

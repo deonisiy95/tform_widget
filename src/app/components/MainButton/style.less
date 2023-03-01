@@ -13,9 +13,16 @@
     cursor: pointer;
     opacity: 0;
     transition: opacity 200ms linear;
-  }
+    position: absolute;
+    bottom: 0;
+    right: 0;
 
-  .show {
-    opacity: 1;
+    &.show {
+      opacity: 1;
+    }
+
+    &.hide {
+      opacity: 0;
+    }
   }
 }
