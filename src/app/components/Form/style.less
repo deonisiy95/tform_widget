@@ -3,6 +3,12 @@
 :local {
   .formWrapper {
     position: relative;
+    transition: opacity 200ms linear;
+    opacity: 1;
+
+    &.hide {
+      opacity: 0;
+    }
   }
 
   .form {
