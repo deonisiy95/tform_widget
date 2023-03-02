@@ -4,6 +4,8 @@ import Input from 'src/core/components/Input';
 import {Select} from 'src/core/components/Select';
 import Textarea from '../../core/components/Textarea';
 import {Field} from '../../core/components/Field';
+import {TextControl} from '../../core/components/Text';
+import {TitleControl} from '../../core/components/Title';
 
 interface IProps {
   control: TControl;
@@ -21,9 +23,9 @@ export const Control: FunctionalComponent<IProps> = ({control}) => {
       return (
         <Field title={control.value.title} text={control.value.text}>
           {control.value.is_multiline ? (
-            <Textarea placeholder={control.value.placeholder} />
+            <Textarea placeholder={control.value.placeholder} maxLength={1024} />
           ) : (
-            <Input placeholder={control.value.placeholder} />
+            <Input placeholder={control.value.placeholder} maxLength={255} />
           )}
         </Field>
       );
@@ -40,9 +42,9 @@ export const Control: FunctionalComponent<IProps> = ({control}) => {
         </Field>
       );
     case 'text':
-      return <tdiv>{control.value}</tdiv>;
+      return <TextControl value={control.value} />;
     case 'title':
-      return <h1>{control.value}</h1>;
+      return <TitleControl value={control.value} />;
     default:
       return null;
   }
