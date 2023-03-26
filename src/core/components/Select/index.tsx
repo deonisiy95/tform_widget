@@ -1,7 +1,8 @@
 import {h, FunctionalComponent} from 'preact';
 import {useMemo, useState, useCallback, useEffect, useRef} from 'preact/compat';
-import style from './style.less';
+import Icon from '../Icon';
 import cn from 'classnames';
+import style from './style.less';
 
 interface IProps {
   value?: string;
@@ -48,9 +49,10 @@ export const Select: FunctionalComponent<IProps> = ({value, options, onChange}) 
   };
 
   return (
-    <tdiv className={style.control} ref={buttonRef}>
+    <tdiv className={cn(style.control, {[style.active]: isActive})} ref={buttonRef}>
       <tdiv className={style.button} onClick={onClick}>
-        {selectedItem}
+        <tdiv className={style.selected}>{selectedItem}</tdiv>
+        <Icon type={isActive ? 'arrow-up' : 'arrow-down'} className={style.icon} />
       </tdiv>
       {isActive ? (
         <tdiv className={cn(style.options, style[position])}>
