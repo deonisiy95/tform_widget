@@ -14,11 +14,13 @@ type TCanRequireControl = IInputControl | ICheckBoxControl;
 interface ITextControl {
   type: 'text';
   value: string;
+  data?: string;
 }
 
 interface ITitleControl {
   type: 'title';
   value: string;
+  data?: string;
 }
 
 interface IInputControl {
@@ -30,6 +32,7 @@ interface IInputControl {
     is_require: boolean;
     is_multiline: boolean;
   };
+  data?: string;
 }
 
 interface ISelectControl {
@@ -40,6 +43,7 @@ interface ISelectControl {
     options: string[];
     is_require: boolean;
   };
+  data?: string;
 }
 
 interface ICheckBoxControl {
@@ -48,9 +52,12 @@ interface ICheckBoxControl {
     text: string;
     is_require: boolean;
   };
+  data?: boolean;
 }
 
 type IFormData = {
   widgetId: string;
   config: string;
 }
+
+type TRecord = Array<{key: string, value: string}>;

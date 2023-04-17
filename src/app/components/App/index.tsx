@@ -9,8 +9,9 @@ interface IProps {
   form: TForm;
 }
 
-export function AppComponent({form}: IProps) {
+export function AppComponent({form: formData}: IProps) {
   const [state, setState] = useState('button');
+  const [form, setForm] = useState(formData);
 
   const onClose = useCallback(() => {
     setState('transition');
@@ -28,9 +29,13 @@ export function AppComponent({form}: IProps) {
     }, TRANSITIONAL_DURATION_FORM);
   }, []);
 
+  const changeData = useCallback(form => {
+    setForm(form);
+  }, []);
+
   return (
     <tdiv className={style.container}>
-      {['form', 'transition'].includes(state) ? <Form data={form} onClose={onClose} /> : null}
+      {['form', 'transition'].includes(state) ? <Form data={form} onClose={onClose} changeData={changeData}/> : null}
       {['button', 'transition'].includes(state) ? <MainButton onClick={onOpen} /> : null}
     </tdiv>
   );

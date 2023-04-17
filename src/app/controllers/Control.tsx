@@ -1,43 +1,40 @@
 import {h, FunctionalComponent} from 'preact';
 import {CheckBox} from 'src/core/components/Checkbox';
-import Input from 'src/core/components/Input';
 import {Select} from 'src/core/components/Select';
-import Textarea from '../../core/components/Textarea';
-import {Field} from '../../core/components/Field';
-import {TextControl} from '../../core/components/Text';
-import {TitleControl} from '../../core/components/Title';
+import {Field} from 'src/core/components/Field';
+import {TextControl} from 'src/core/components/Text';
+import {TitleControl} from 'src/core/components/Title';
+import {InputField} from './InputField';
 
 interface IProps {
   control: TControl;
+  onChange: (value: string | boolean) => void;
 }
 
-export const Control: FunctionalComponent<IProps> = ({control}) => {
+export const Control: FunctionalComponent<IProps> = ({control, onChange}) => {
   switch (control.type) {
     case 'checkbox':
       return (
-        <CheckBox checked={false} required={control.value.is_require}>
+        <CheckBox
+          checked={control.data ?? false}
+          required={control.value.is_require}
+          onChange={event => onChange((event.target as HTMLInputElement).checked)}
+        >
           {control.value.text}
         </CheckBox>
       );
     case 'input':
-      return (
-        <Field title={control.value.title} text={control.value.text}>
-          {control.value.is_multiline ? (
-            <Textarea placeholder={control.value.placeholder} maxLength={1024} />
-          ) : (
-            <Input placeholder={control.value.placeholder} maxLength={255} />
-          )}
-        </Field>
-      );
+      return <InputField input={control} onChange={onChange} />;
     case 'select':
       return (
         <Field title={control.value.title} text={control.value.text}>
           <Select
+            value={control.data}
             options={control.value.options.map((item, index) => ({
               key: String(index),
               value: item
             }))}
-            onChange={key => console.log(key)}
+            onChange={key => onChange(key)}
           />
         </Field>
       );
