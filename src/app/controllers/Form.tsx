@@ -1,9 +1,10 @@
 import {h, FunctionalComponent} from 'preact';
-import {useCallback, useEffect} from 'preact/compat';
+import {useCallback} from 'preact/compat';
 import {Control} from './Control';
 import {FormComponent} from '../components/Form';
 import {prepareData} from '../utils/data';
 import produce from 'immer';
+import {submitForm} from '../actions';
 
 interface IProps {
   data: TForm;
@@ -13,11 +14,7 @@ interface IProps {
 
 export const Form: FunctionalComponent<IProps> = ({data, onClose, changeData}) => {
   const onSubmit = useCallback(async () => {
-    try {
-      console.log('result', prepareData(data));
-    } catch (error) {
-      console.log('Error send form', error);
-    }
+    await submitForm(window.widgetId, prepareData(data));
   }, [data]);
 
   const onChange = useCallback(
