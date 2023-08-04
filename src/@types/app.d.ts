@@ -60,4 +60,4 @@ type IFormData = {
   config: string;
 }
 
-type TRecord = Array<{key: string, value: string}>;
+type TMessage = Array<{key: string, value: string}>;

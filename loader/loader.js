@@ -11,7 +11,7 @@
     iframe.setAttribute('frameborder', 'no');
 
     const widgetId = getWidgetId(getScriptElement());
-    const baseUrl = '127.0.0.1:3000';
+    const baseUrl = 'api.askio.ru';
     let config = {};
 
     if (!widgetId) {

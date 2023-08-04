@@ -1,4 +1,4 @@
-export const prepareData = (values: TForm): TRecord => {
+export const prepareData = (values: TForm): TMessage => {
   const result = [];
 
   values.forEach(item => {
