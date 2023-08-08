@@ -1,4 +1,4 @@
-import {host} from 'src/core/const/env';
+import {api_host} from 'src/core/const/env';
 
 type THttpMethods = 'POST' | 'GET' | 'DELETE' | 'PUT' | 'PATCH';
 
@@ -20,7 +20,7 @@ export default class Api {
         body = JSON.stringify(data);
       }
 
-      const response = await fetch(`${host}/${url}`, {
+      const response = await fetch(`${api_host}/${url}`, {
         method,
         headers,
         body

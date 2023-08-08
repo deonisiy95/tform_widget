@@ -11,7 +11,8 @@
     iframe.setAttribute('frameborder', 'no');
 
     const widgetId = getWidgetId(getScriptElement());
-    const baseUrl = 'api.askio.ru';
+    const apiHost = 'http://api.askio.ru';
+    const widgetHost = 'http://widget.askio.ru';
     let config = {};
 
     if (!widgetId) {
@@ -19,7 +20,7 @@
       return;
     }
 
-    getConfig(`http://${baseUrl}/config/${widgetId}`, loadConfig => {
+    getConfig(`${apiHost}/config/${widgetId}`, loadConfig => {
       config = loadConfig;
 
       if (['complete', 'interactive'].includes(document.readyState)) {
@@ -100,7 +101,7 @@
     }
 
     function getBundleSrc() {
-      return `http://${baseUrl}/bundle.js?rand=${config.build_number}`;
+      return `${widgetHost}/bundle.js?rand=${config.build_number}`;
     }
 
     function getScriptElement() {

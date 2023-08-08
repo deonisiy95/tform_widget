@@ -1,1 +1,2 @@
-export const host = 'http://localhost:3000';
+export const api_host = 'http://api.askio.ru';
+export const widget_host = 'http://widget.askio.ru';
