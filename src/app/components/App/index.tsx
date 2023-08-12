@@ -7,11 +7,11 @@ import style from './style.less';
 
 interface IProps {
   form: TForm;
+  label: TLabel;
 }
 
-export function AppComponent({form: formData}: IProps) {
+export function AppComponent({form, label}: IProps) {
   const [state, setState] = useState('button');
-  const [form, setForm] = useState(formData);
 
   const onClose = useCallback(() => {
     setState('transition');
@@ -29,14 +29,12 @@ export function AppComponent({form: formData}: IProps) {
     }, TRANSITIONAL_DURATION_FORM);
   }, []);
 
-  const changeData = useCallback(form => {
-    setForm(form);
-  }, []);
-
   return (
     <tdiv className={style.container}>
-      {['form', 'transition'].includes(state) ? <Form data={form} onClose={onClose} changeData={changeData}/> : null}
-      {['button', 'transition'].includes(state) ? <MainButton onClick={onOpen} /> : null}
+      {['form', 'transition'].includes(state) ? <Form formData={form} onClose={onClose} /> : null}
+      {['button', 'transition'].includes(state) ? (
+        <MainButton onClick={onOpen} label={label} />
+      ) : null}
     </tdiv>
   );
 }

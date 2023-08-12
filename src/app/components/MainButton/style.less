@@ -8,14 +8,21 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    background-color: @grayscale-40;
+    background-color: @main-element;
     user-select: none;
     cursor: pointer;
-    opacity: 0;
+    box-shadow: @grayscale-20 0 4px 16px;
     transition: opacity 200ms linear;
     position: absolute;
+    opacity: 0;
     bottom: 0;
     right: 0;
+
+    &:hover {
+      .text {
+        display: block;
+      }
+    }
 
     &.show {
       opacity: 1;
@@ -24,5 +31,19 @@
     &.hide {
       opacity: 0;
     }
+  }
+
+  .text {
+    display: none;
+    position: absolute;
+    right: calc(100% + 8px);
+    white-space: nowrap;
+    font-size: 20px;
+  }
+
+  .icon {
+    height: 26px;
+    width: 26px;
+    -webkit-mask-size: contain;
   }
 }

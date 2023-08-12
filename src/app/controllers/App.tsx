@@ -10,10 +10,15 @@ interface IProps {
 
 export default function App({widgetId}: IProps) {
   const [form, setForm] = useState(null);
+  const [label, setLabel] = useState<TLabel>(null);
 
   useEffect(() => {
     Api.send<IFormData>(`widgets/form/${widgetId}`)
-      .then(result => asyncJSON.parse(result?.config || ''))
+      .then(result => {
+        setLabel(result?.label);
+
+        return asyncJSON.parse(result?.config || '');
+      })
       .then(form => setForm(form))
       .catch(error => console.error('Error load form config', error));
   }, []);
@@ -22,5 +27,5 @@ export default function App({widgetId}: IProps) {
     return null;
   }
 
-  return <AppComponent form={form} />;
+  return <AppComponent form={form} label={label} />;
 }

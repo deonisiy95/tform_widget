@@ -2,12 +2,7 @@ type TForm = Array<TControl>;
 
 type TTypeControl = 'input' | 'text' | 'title' | 'checkbox' | 'select';
 
-type TControl =
-  | ITextControl
-  | ITitleControl
-  | IInputControl
-  | ICheckBoxControl
-  | ISelectControl;
+type TControl = ITextControl | ITitleControl | IInputControl | ICheckBoxControl | ISelectControl;
 
 type TCanRequireControl = IInputControl | ICheckBoxControl;
 
@@ -55,9 +50,16 @@ interface ICheckBoxControl {
   data?: boolean;
 }
 
+type TLabel = {
+  text?: string;
+  icon: string;
+  color: string;
+};
+
 type IFormData = {
   widgetId: string;
   config: string;
-}
+  label: TLabel;
+};
 
-type TMessage = Array<{key: string, value: string}>;
+type TMessage = Array<{key: string; value: string}>;

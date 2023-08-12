@@ -29,7 +29,7 @@ export const InputField: FunctionalComponent<IProps> = ({input, onChange}) => {
           placeholder={input.value.placeholder}
           maxLength={1024}
           onChange={onInputChange}
-          value={value}
+          value={input.data}
         />
       ) : (
         <Input
@@ -37,7 +37,7 @@ export const InputField: FunctionalComponent<IProps> = ({input, onChange}) => {
           placeholder={input.value.placeholder}
           maxLength={255}
           onChange={onInputChange}
-          value={value}
+          value={input.data}
         />
       )}
     </Field>

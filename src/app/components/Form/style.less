@@ -16,14 +16,10 @@
   }
 
   .form {
-    padding: 12px;
+    padding: 24px 18px;
     border-radius: 12px;
     width: 350px;
     box-shadow: 0 4px 20px 2px rgb(0 0 0 / 14%);
-
-    & > tdiv {
-      padding: 6px 12px;
-    }
   }
 
   .close {
@@ -41,7 +37,20 @@
     }
   }
 
-  .submit {
-    margin-top: 8px;
+  .fields > tdiv {
+    margin-bottom: 12px;
+  }
+
+  .send {
+    margin-top: 18px;
+    height: 38px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .submit {
+      width: 100%;
+    }
   }
 }
