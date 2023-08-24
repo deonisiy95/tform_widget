@@ -11,8 +11,8 @@
     iframe.setAttribute('frameborder', 'no');
 
     const widgetId = getWidgetId(getScriptElement());
-    const apiHost = 'http://api.askio.ru';
-    const widgetHost = 'http://widget.askio.ru';
+    const apiHost = 'https://api.askio.ru';
+    const widgetHost = 'https://widget.askio.ru';
     let config = {};
 
     if (!widgetId) {
